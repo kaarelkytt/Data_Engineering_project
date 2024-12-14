@@ -30,7 +30,7 @@ This project analyzes the relationship between air quality and weather condition
 ## Getting Started
 
 1.  Clone the repository: `git clone https://https://github.com/kaarelkytt/Data_Engineering_project`
-2.  Set the OPENAQ_API_KEY environment variable:
+2.  Set the OPENAQ_API_KEY environment variable (https://docs.openaq.org/using-the-api/api-key):
     *   On Linux/macOS: `export OPENAQ_API_KEY="your_actual_api_key"`
     *   On Windows: `set OPENAQ_API_KEY="your_actual_api_key"`
 3.  Build and run the Docker containers: 
