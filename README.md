@@ -38,8 +38,6 @@ This project analyzes the relationship between air quality and weather condition
     *   `docker compose up airflow-init`
     *   `docker-compose up -d`
 4.  Access the Airflow UI: `http://localhost:8080`
-5.  Configure the Airflow connection to DuckDB (see `docker-compose.yml` for connection details).
-6.  Trigger the `air_quality_weather_pipeline` DAG in the Airflow UI.
 
 ## ETL Pipeline
 
