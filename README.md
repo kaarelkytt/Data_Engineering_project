@@ -25,7 +25,7 @@ This project analyzes the relationship between air quality and weather condition
     *   `src/`: Contains Python scripts for data acquisition, cleaning, transformation, and modeling.
     *   `dags/`: Contains the Airflow DAG definition file.
     *   `Dockerfile`: Defines the Docker image for the project.
-    *   `docker-compose.yml`: Orchestrates the Airflow and DuckDB containers.
+    *   `compose.yml`: Orchestrates the Airflow and DuckDB containers.
 
 ## Getting Started
 
