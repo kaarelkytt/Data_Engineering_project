@@ -1,0 +1,6 @@
+apache-airflow
+duckdb
+pandas
+requests
+openpyxl
+psycopg2-binary
