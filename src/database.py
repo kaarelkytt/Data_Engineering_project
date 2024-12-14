@@ -3,12 +3,16 @@ import duckdb
     
     
 def create_database():
+
+    # Creates a DuckDB database and populates it with the joined data.
+    # The database uses a star schema with a fact table (combined_data) and two dimension tables (DimTime and DimWeather).
+
     df = pd.read_csv("/opt/airflow/data/joined/data.csv")
     df['datetime'] = pd.to_datetime(df['datetime'])
     
-    conn = duckdb.connect('/opt/airflow/db/duck.db')
+    conn = duckdb.connect('/opt/airflow/db/duck.db') # Connect to DuckDB database
         
-    # Create the fact table
+    # Create the fact table (combined_data)
     conn.sql(
         """
         CREATE TABLE IF NOT EXISTS combined_data (
@@ -79,5 +83,5 @@ def create_database():
             """
         )
             
-    conn.close()
+    conn.close() # Close the database connection
 

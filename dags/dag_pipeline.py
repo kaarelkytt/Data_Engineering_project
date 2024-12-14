@@ -11,12 +11,14 @@ from src.data_air_quality import download_air_quality_data, clean_air_quality_da
 from src.data_join import join_data
 from src.database import create_database
 
+# Define the DAG
 dag = DAG(
     dag_id="pipeline",
     start_date=airflow.utils.dates.days_ago(0),
     schedule=None,
     catchup=False)
 
+# Define the tasks
 download_air_quality = PythonOperator(
     task_id="download_air_quality_data",
     dag=dag,
@@ -66,6 +68,7 @@ end = DummyOperator(
 )
 
 
+# Define the task dependencies
 download_air_quality >> clean_air_quality
 download_weather >> clean_weather
 [clean_air_quality, clean_weather] >> join_data

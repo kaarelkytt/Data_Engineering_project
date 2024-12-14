@@ -2,21 +2,25 @@ import requests
 import pandas as pd
 import io
 
+# Define file paths for raw and processed weather data
 weather_raw_file = '/opt/airflow/data/raw/weather_data.csv'
 weather_processed_file = "/opt/airflow/data/processed/weather_data.csv"
 
 def download_weather_data():
+    # Downloads weather data from the Estonian Weather Service and saves it as a raw CSV file
+    
     url = "https://www.ilmateenistus.ee/wp-content/uploads/2024/07/Tallinn-Harku-2004-juuni-2024.xlsx"
     response = requests.get(url)
     if response.status_code == 200:
         df = pd.read_excel(io.BytesIO(response.content), header=2)
-        df.to_csv(weather_raw_file, index=False)
+        df.to_csv(weather_raw_file, index=False) # Save the DataFrame to a CSV file
     else:
         print(f"Error: {response.status_code} - {response.text}")
 
-download_weather_data()
 
 def clean_weather_data():
+    # Cleans and preprocesses the raw weather data
+    
     df = pd.read_csv(weather_raw_file)
     
     # Extract relevant columns
@@ -50,4 +54,4 @@ def clean_weather_data():
     
     df.fillna(-1, inplace=True)
     
-    df.to_csv(weather_processed_file, index=False)
+    df.to_csv(weather_processed_file, index=False) # Save the cleaned DataFrame to a CSV file
